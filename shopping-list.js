@@ -1,4 +1,4 @@
-const addInput = document.getElementById(add-field);
+const addInput = document.getElementById('add-field');
 
 const colorInput = document.getElementById("color-field");
 const itemList = document.getElementById("item-list");
@@ -12,23 +12,25 @@ function addItem() {
   const li = document.createElement("li");
   li.innerHTML = addInput.value;
   li.style.color = lastPickedColor;
-  colorChange();
-  itemList.appendChild("li");
+  changeColor();
+  itemList.appendChild(li);
+ 
 
   addInput.value = "";
 }
 
 // remove item
 function removeItem() {
-  itemList.removeChild(li);
   let li = document.querySelector("li:last-child");
+  itemList.removeChild(li);
 }
 
 // change color
 function changeColor() {
   const List = document.querySelectorAll("li");
   const lastPickedColor = colorInput.value;
-  for (let i = 0; i < List.length(); i++) {
+  // console.log(List);
+  for (let i = 0; i < List.length; i++) {
     List[i].style.color = lastPickedColor;
   }
 }
